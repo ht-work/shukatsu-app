@@ -1,4 +1,4 @@
-name: Deploy Vite React TypeScript site to GitHub Pages
+name: Deploy Vite site to GitHub Pages
 
 on:
   push:
@@ -20,28 +20,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: チェックアウト
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Node.jsを設定
         uses: actions/setup-node@v4
         with:
-          node-version: 22
-          cache: npm
+          node-version: 20
 
-      - name: Install dependencies
-        run: npm ci
+      - name: 依存関係をインストール
+        run: npm install
 
-      - name: Build
+      - name: ビルド
         run: npm run build
 
-      - name: Setup Pages
+      - name: distの中身を確認
+        run: ls -la dist
+
+      - name: Pagesを設定
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: 成果物をアップロード
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: dist
 
-      - name: Deploy to GitHub Pages
+      - name: GitHub Pagesにデプロイ
         uses: actions/deploy-pages@v4
