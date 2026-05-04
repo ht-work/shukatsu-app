@@ -1,4 +1,4 @@
-name: Deploy Vite site to GitHub Pages
+name: Deploy site to GitHub Pages
 
 on:
   push:
@@ -34,8 +34,8 @@ jobs:
       - name: ビルド
         run: npm run build
 
-      - name: distの中身を確認
-        run: ls -la dist
+      - name: ビルド後のファイル一覧を確認
+        run: ls -la
 
       - name: Pagesを設定
         uses: actions/configure-pages@v5
