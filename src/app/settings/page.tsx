@@ -32,7 +32,7 @@ function PlanCard({
     <Card>
       <CardHeader title={title} />
       <CardContent>
-        <Icon className="mb-4 h-7 w-7 text-sky-200" aria-hidden />
+        <Icon className="mb-4 h-7 w-7 text-zinc-200" aria-hidden />
         <p className="text-sm text-muted-foreground">{description}</p>
       </CardContent>
     </Card>

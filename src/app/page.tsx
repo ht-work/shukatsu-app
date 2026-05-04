@@ -39,7 +39,7 @@ export default function DashboardPage() {
         }
       />
 
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-3 md:grid-cols-3">
         <MetricCard icon={Building2} label="登録企業" value={`${companies.length}社`} />
         <MetricCard icon={CheckCircle2} label="選考中" value={`${activeApplications.length}件`} />
         <MetricCard
@@ -63,7 +63,7 @@ export default function DashboardPage() {
           {upcomingTasks.length === 0 ? (
             <EmptyState title="締切はまだありません" description="エントリー詳細からタスクを追加できます。" />
           ) : (
-            <div className="divide-y">
+            <div className="divide-y divide-zinc-800">
               {upcomingTasks.map((task) => {
                 const application = applications.find((item) => item.id === task.applicationId);
                 const company = application ? getCompany(application.companyId) : undefined;
@@ -76,7 +76,7 @@ export default function DashboardPage() {
                         ? `/companies/${company.id}/applications/${application.id}`
                         : "/companies"
                     }
-                    className="focus-ring flex flex-col gap-2 rounded-md px-2 py-4 transition hover:bg-muted sm:flex-row sm:items-center sm:justify-between"
+                    className="focus-ring flex flex-col gap-2 rounded-md px-2 py-3 transition-colors hover:bg-zinc-900 sm:flex-row sm:items-center sm:justify-between"
                   >
                     <div>
                       <p className="font-medium">{task.title}</p>
@@ -106,14 +106,14 @@ export default function DashboardPage() {
               description="企業詳細から本選考またはインターンのエントリーを追加できます。"
             />
           ) : (
-            <div className="grid gap-3">
+            <div className="grid gap-2">
               {activeApplications.slice(0, 6).map((application) => {
                 const company = getCompany(application.companyId);
                 return (
                   <Link
                     key={application.id}
                     href={`/companies/${application.companyId}/applications/${application.id}`}
-                    className="focus-ring flex flex-col gap-3 rounded-lg border bg-background p-4 transition hover:bg-muted/50 sm:flex-row sm:items-center sm:justify-between"
+                    className="focus-ring flex flex-col gap-3 rounded-md border border-zinc-800 bg-background px-3 py-3 transition-colors hover:bg-zinc-900 sm:flex-row sm:items-center sm:justify-between"
                   >
                     <div>
                       <p className="font-medium">{company?.name ?? "企業未設定"}</p>
@@ -144,12 +144,12 @@ function MetricCard({
 }) {
   return (
     <Card>
-      <CardContent className="flex items-center gap-4">
-        <span className="flex h-11 w-11 items-center justify-center rounded-md bg-sky-400/10 text-sky-200">
+      <CardContent className="flex items-start gap-3">
+        <span className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-md border border-zinc-800 bg-background text-zinc-300">
           <Icon className="h-5 w-5" aria-hidden />
         </span>
         <div>
-          <p className="text-sm text-muted-foreground">{label}</p>
+          <p className="text-xs font-medium text-muted-foreground">{label}</p>
           <p className="mt-1 text-2xl font-semibold">{value}</p>
         </div>
       </CardContent>

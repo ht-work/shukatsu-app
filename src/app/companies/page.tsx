@@ -70,7 +70,7 @@ export default function CompaniesPage() {
       />
 
       <Card>
-        <CardContent className="grid gap-3 md:grid-cols-[1fr_220px_180px]">
+        <CardContent className="grid gap-2 md:grid-cols-[1fr_220px_180px]">
           <label className="relative">
             <Search className="pointer-events-none absolute left-3 top-3 h-4 w-4 text-muted-foreground" aria-hidden />
             <Input
@@ -107,7 +107,7 @@ export default function CompaniesPage() {
           }
         />
       ) : (
-        <div className="grid gap-3">
+        <div className="grid gap-2">
           {filteredCompanies.map((company) => {
             const companyApplications = applications.filter((application) => application.companyId === company.id);
             const latestApplication = companyApplications[0];
@@ -117,12 +117,12 @@ export default function CompaniesPage() {
               <Link
                 key={company.id}
                 href={`/companies/${company.id}`}
-                className="focus-ring rounded-lg border bg-card p-5 transition hover:bg-muted/60"
+                className="focus-ring rounded-md border border-zinc-800 bg-zinc-950/65 px-4 py-3 transition-colors hover:bg-zinc-900"
               >
                 <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
-                      <h2 className="text-lg font-semibold">{company.name}</h2>
+                      <h2 className="text-base font-semibold">{company.name}</h2>
                       {company.industry ? <span className="text-sm text-muted-foreground">{company.industry}</span> : null}
                     </div>
                     <p className="mt-2 text-sm text-muted-foreground">

@@ -23,10 +23,12 @@ export default function RootLayout({
     <html lang="ja" className="dark">
       <body className={`${geist.variable} font-sans antialiased`}>
         <ShukatsuProvider>
-          <AppHeader />
-          <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8">
-            {children}
-          </main>
+          <div className="min-h-dvh lg:pl-64">
+            <AppHeader />
+            <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-5 py-7 sm:px-8 lg:px-12 lg:py-12">
+              {children}
+            </main>
+          </div>
         </ShukatsuProvider>
       </body>
     </html>

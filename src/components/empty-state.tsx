@@ -10,7 +10,7 @@ export function EmptyState({
   action?: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-48 flex-col items-center justify-center rounded-lg border border-dashed bg-card/50 p-8 text-center">
+    <div className="flex min-h-48 flex-col items-center justify-center rounded-md border border-dashed border-zinc-800 bg-card p-8 text-center">
       <Inbox className="mb-3 h-8 w-8 text-muted-foreground" aria-hidden />
       <p className="text-sm font-medium">{title}</p>
       {description ? <p className="mt-1 max-w-md text-sm text-muted-foreground">{description}</p> : null}

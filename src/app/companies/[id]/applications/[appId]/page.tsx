@@ -78,8 +78,8 @@ export default function ApplicationDetailPage() {
         }
       />
 
-      <div className="grid gap-5 lg:grid-cols-[0.9fr_1.4fr]">
-        <div className="grid gap-5">
+      <div className="grid gap-4 lg:grid-cols-[0.9fr_1.4fr]">
+        <div className="grid gap-4">
           <Card>
             <CardHeader title="選考情報" />
             <CardContent className="grid gap-5">
@@ -114,7 +114,7 @@ export default function ApplicationDetailPage() {
               <InfoRow label="マイページURL">
                 {application.myPageUrl ? (
                   <a
-                    className="inline-flex items-center gap-1 text-sky-200 underline-offset-4 hover:underline"
+                    className="inline-flex items-center gap-1 text-zinc-100 underline-offset-4 hover:underline"
                     href={application.myPageUrl}
                     target="_blank"
                     rel="noreferrer"
@@ -159,13 +159,13 @@ export default function ApplicationDetailPage() {
             {tasks.length === 0 ? (
               <EmptyState title="タスクはまだありません" description="ES締切、Webテスト、面接日などを追加してください。" />
             ) : (
-              <div className="divide-y rounded-lg border">
+              <div className="divide-y divide-zinc-800 rounded-md border border-zinc-800">
                 {tasks.map((task) => (
                   <div key={task.id} className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
                     <label className="flex min-w-0 items-start gap-3">
                       <input
                         type="checkbox"
-                        className="mt-1 h-4 w-4 rounded border-border bg-background accent-sky-500"
+                        className="mt-1 h-4 w-4 rounded border-border bg-background accent-zinc-100"
                         checked={task.done}
                         onChange={(event) => updateTask(task.id, { done: event.target.checked })}
                       />
@@ -180,7 +180,7 @@ export default function ApplicationDetailPage() {
                     </label>
                     <div className="flex items-center gap-2">
                       {task.done ? (
-                        <span className="inline-flex items-center gap-1 text-xs text-emerald-200">
+                        <span className="inline-flex items-center gap-1 text-xs text-zinc-300">
                           <CheckCircle2 className="h-4 w-4" aria-hidden />
                           完了
                         </span>

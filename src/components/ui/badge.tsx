@@ -7,11 +7,11 @@ type BadgeProps = {
 };
 
 const tones: Record<NonNullable<BadgeProps["tone"]>, string> = {
-  default: "border-sky-400/40 bg-sky-400/10 text-sky-200",
-  muted: "border-border bg-muted text-muted-foreground",
-  success: "border-emerald-400/40 bg-emerald-400/10 text-emerald-200",
-  warning: "border-amber-400/40 bg-amber-400/10 text-amber-200",
-  danger: "border-red-400/40 bg-red-400/10 text-red-200",
+  default: "border-zinc-600 bg-zinc-800 text-zinc-100",
+  muted: "border-zinc-800 bg-zinc-900 text-zinc-400",
+  success: "border-emerald-800 bg-emerald-950 text-emerald-200",
+  warning: "border-amber-800 bg-amber-950 text-amber-200",
+  danger: "border-red-800 bg-red-950 text-red-200",
 };
 
 export function Badge({ children, tone = "default", className }: BadgeProps) {

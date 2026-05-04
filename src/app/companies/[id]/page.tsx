@@ -68,14 +68,14 @@ export default function CompanyDetailPage() {
         }
       />
 
-      <div className="grid gap-5 lg:grid-cols-[1fr_1.4fr]">
+      <div className="grid gap-4 lg:grid-cols-[1fr_1.4fr]">
         <Card>
           <CardHeader title="企業情報" />
           <CardContent className="grid gap-4 text-sm">
             <InfoRow label="URL">
               {company.url ? (
                 <a
-                  className="inline-flex items-center gap-1 text-sky-200 underline-offset-4 hover:underline"
+                  className="inline-flex items-center gap-1 text-zinc-100 underline-offset-4 hover:underline"
                   href={company.url}
                   target="_blank"
                   rel="noreferrer"
@@ -91,7 +91,7 @@ export default function CompanyDetailPage() {
             <InfoRow label="更新日">{formatDate(company.updatedAt)}</InfoRow>
             <div>
               <p className="mb-2 text-muted-foreground">メモ</p>
-              <p className="whitespace-pre-wrap rounded-md border bg-background p-3 leading-6">
+              <p className="whitespace-pre-wrap rounded-md border border-zinc-800 bg-zinc-950 p-3 leading-6">
                 {company.notes || "メモはまだありません。"}
               </p>
             </div>
@@ -115,7 +115,7 @@ export default function CompanyDetailPage() {
             {applications.length === 0 ? (
               <EmptyState title="エントリーはまだありません" description="本選考またはインターンの選考を追加してください。" />
             ) : (
-              <div className="grid gap-3">
+              <div className="grid gap-2">
                 {applications.map((application) => {
                   const appTasks = getApplicationTasks(application.id);
                   const nextTask = getNextTask(appTasks);
@@ -124,7 +124,7 @@ export default function CompanyDetailPage() {
                     <Link
                       key={application.id}
                       href={`/companies/${company.id}/applications/${application.id}`}
-                      className="focus-ring rounded-lg border bg-background p-4 transition hover:bg-muted/60"
+                      className="focus-ring rounded-md border border-zinc-800 bg-background px-3 py-3 transition-colors hover:bg-zinc-900"
                     >
                       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <div>
